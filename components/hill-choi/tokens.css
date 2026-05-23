@@ -1,0 +1,17 @@
+/* Shared design tokens — Hill Choi Figma landing */
+:root {
+  --hc-bg: #ffffff;
+  --hc-text: #111827;
+  --hc-text-muted: #6b7280;
+  --hc-border: #e5e7eb;
+  --hc-max-width: 1200px;
+  --hc-gutter: clamp(1.25rem, 4vw, 4rem);
+  --hc-section-gap: clamp(4rem, 8vw, 7rem);
+
+  --hc-teal: #3f6f63;
+  --hc-lavender: #c8b6e8;
+  --hc-yellow: #f3e3a3;
+  --hc-pink: #e8a0b4;
+  --hc-cream: #faf6ec;
+  --hc-orange: #e8954a;
+}

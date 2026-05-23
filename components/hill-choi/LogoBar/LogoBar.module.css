@@ -1,0 +1,35 @@
+.section {
+  margin-top: var(--hc-section-gap);
+  padding: 0 var(--hc-gutter);
+}
+
+.inner {
+  max-width: var(--hc-max-width);
+  margin: 0 auto;
+  border-top: 1px solid var(--hc-border);
+  border-bottom: 1px solid var(--hc-border);
+  padding: clamp(2rem, 4vw, 2.75rem) 0;
+}
+
+.logos {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(1.75rem, 5vw, 3.5rem);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--hc-text);
+}
+
+.item svg {
+  height: clamp(1.25rem, 2.5vw, 1.75rem);
+  width: auto;
+}

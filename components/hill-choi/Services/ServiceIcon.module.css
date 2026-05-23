@@ -1,0 +1,6 @@
+.icon {
+  width: clamp(5rem, 12vw, 6.5rem);
+  height: auto;
+  color: #c4c4c4;
+  margin-inline: auto;
+}
