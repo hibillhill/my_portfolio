@@ -91,9 +91,13 @@ export default function AboutPage() {
       </div>
 
       <section id="contact" className="scroll-mt-24">
-        <h2 className="mb-6 font-display text-2xl font-bold">
+        <h2 className="mb-4 font-display text-2xl font-bold">
           聯絡我 <span className="animate-blink text-y2k-pink">✧</span>
         </h2>
+        <p className="mb-8 max-w-2xl font-mono text-sm leading-relaxed opacity-90 md:text-base">
+          歡迎設計同業交流作品與方法、討論 UX 趨勢，也開放品牌方與團隊洽詢合作 —
+          無論是產品策略、介面優化或設計顧問，我都很樂意聊聊如何讓體驗與商業目標一起變好。
+        </p>
         <ContactForm />
       </section>
     </div>
