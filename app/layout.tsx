@@ -1,19 +1,21 @@
 import type { Metadata } from "next";
-import { DM_Sans, Syne } from "next/font/google";
+import { Inter, Space_Grotesk } from "next/font/google";
 import { LanguageProvider } from "@/components/i18n/LanguageProvider";
+import { AmbientBackground } from "@/components/site/AmbientBackground";
 import { Footer } from "@/components/site/Footer";
 import { Header } from "@/components/site/Header";
+import { ScrollProgress } from "@/components/site/ScrollProgress";
 import "./globals.css";
 
-const syne = Syne({
+const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
-  variable: "--font-syne",
+  variable: "--font-space-grotesk",
   display: "swap",
 });
 
-const dmSans = DM_Sans({
+const inter = Inter({
   subsets: ["latin"],
-  variable: "--font-dm-sans",
+  variable: "--font-inter",
   display: "swap",
 });
 
@@ -33,8 +35,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${syne.variable} ${dmSans.variable}`}>
+      <body className={`${spaceGrotesk.variable} ${inter.variable}`}>
         <LanguageProvider>
+          <AmbientBackground />
+          <ScrollProgress />
           <Header />
           <main>{children}</main>
           <Footer />

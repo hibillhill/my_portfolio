@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { useLanguage } from "@/components/i18n/LanguageProvider";
 import { LegalModal, type LegalType } from "./LegalModal";
+import { Reveal } from "./Reveal";
 
 const socialLinks = [
   { label: "Instagram", href: "https://instagram.com" },
@@ -29,76 +30,80 @@ export function Footer() {
 
   return (
     <>
-      <footer className="mt-24 border-t border-site-fg md:mt-32">
-        <div className="site-container py-12 md:py-16">
-          <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
-            <div className="lg:col-span-2">
-              <p className="font-display text-xl font-bold uppercase md:text-2xl">
-                {t.meta.siteName}
-              </p>
-              <p className="mt-3 font-body text-xs text-site-muted md:text-sm">
-                {t.footer.copyright}
-              </p>
-            </div>
+      <footer className="mt-24 border-t border-site-line md:mt-32">
+        <Reveal>
+          <div className="site-container py-12 md:py-16">
+            <div className="glass-strong rounded-3xl p-6 md:p-10">
+              <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
+                <div className="lg:col-span-2">
+                  <p className="font-display text-xl font-bold uppercase md:text-2xl">
+                    {t.meta.siteName}
+                  </p>
+                  <p className="mt-3 font-body text-xs text-site-muted md:text-sm">
+                    {t.footer.copyright}
+                  </p>
+                </div>
 
-            <div>
-              <p className="mb-3 font-body text-[10px] font-semibold uppercase tracking-[0.2em]">
-                {t.footer.sitemap}
-              </p>
-              <ul className="space-y-2">
-                {sitemap.map((item) => (
-                  <li key={item.href}>
-                    <Link
-                      href={item.href}
-                      className="font-body text-sm transition-opacity hover:opacity-50"
-                    >
-                      {item.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
+                <div>
+                  <p className="mb-3 font-body text-[10px] font-semibold uppercase tracking-[0.2em]">
+                    {t.footer.sitemap}
+                  </p>
+                  <ul className="space-y-2">
+                    {sitemap.map((item) => (
+                      <li key={item.href}>
+                        <Link
+                          href={item.href}
+                          className="bounce-hover inline-block font-body text-sm"
+                        >
+                          {item.label}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
 
-            <div>
-              <p className="mb-3 font-body text-[10px] font-semibold uppercase tracking-[0.2em]">
-                {t.footer.social}
-              </p>
-              <ul className="space-y-2">
-                {socialLinks.map((item) => (
-                  <li key={item.label}>
-                    <a
-                      href={item.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="font-body text-sm transition-opacity hover:opacity-50"
-                    >
-                      {item.label}
-                    </a>
-                  </li>
-                ))}
-              </ul>
+                <div>
+                  <p className="mb-3 font-body text-[10px] font-semibold uppercase tracking-[0.2em]">
+                    {t.footer.social}
+                  </p>
+                  <ul className="space-y-2">
+                    {socialLinks.map((item) => (
+                      <li key={item.label}>
+                        <a
+                          href={item.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="bounce-hover inline-block font-body text-sm"
+                        >
+                          {item.label}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+
+              <div className="mt-10 border-t border-site-line pt-6">
+                <p className="mb-3 font-body text-[10px] font-semibold uppercase tracking-[0.2em]">
+                  {t.footer.legal}
+                </p>
+                <ul className="flex flex-wrap gap-4">
+                  {legalItems.map((item) => (
+                    <li key={item.type}>
+                      <button
+                        type="button"
+                        onClick={() => setLegalType(item.type)}
+                        className="bounce-hover font-body text-sm underline-offset-4 hover:underline"
+                      >
+                        {item.label}
+                      </button>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
           </div>
-
-          <div className="mt-10 border-t border-site-fg pt-6">
-            <p className="mb-3 font-body text-[10px] font-semibold uppercase tracking-[0.2em]">
-              {t.footer.legal}
-            </p>
-            <ul className="flex flex-wrap gap-4">
-              {legalItems.map((item) => (
-                <li key={item.type}>
-                  <button
-                    type="button"
-                    onClick={() => setLegalType(item.type)}
-                    className="font-body text-sm underline-offset-4 transition-opacity hover:underline hover:opacity-70"
-                  >
-                    {item.label}
-                  </button>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
+        </Reveal>
       </footer>
 
       <LegalModal type={legalType} onClose={() => setLegalType(null)} />

@@ -24,11 +24,11 @@ export function Header() {
 
   return (
     <>
-      <header className="sticky top-0 z-50 border-b border-site-fg bg-site-bg/95 backdrop-blur-sm">
+      <header className="glass-header sticky top-0 z-50">
         <div className="site-container flex h-16 items-center justify-between gap-4 md:h-20">
           <Link
             href="/"
-            className="font-display text-lg font-bold uppercase tracking-tight md:text-xl"
+            className="bounce-hover font-display text-lg font-bold uppercase tracking-tight md:text-xl"
             onClick={() => setMenuOpen(false)}
           >
             {t.meta.siteName}
@@ -50,7 +50,7 @@ export function Header() {
             <button
               type="button"
               onClick={toggleLocale}
-              className="hidden border border-site-fg px-3 py-2 font-body text-[10px] font-semibold uppercase tracking-wider transition-colors hover:bg-site-fg hover:text-site-bg sm:inline-flex"
+              className="bounce-hover glass hidden rounded-full px-3 py-2 font-body text-[10px] font-semibold uppercase tracking-wider sm:inline-flex"
               aria-label="Toggle language"
             >
               {t.lang.label}
@@ -64,7 +64,7 @@ export function Header() {
             </button>
             <button
               type="button"
-              className="border border-site-fg p-2 md:hidden"
+              className="bounce-press glass rounded-full p-2.5 md:hidden"
               onClick={() => setMenuOpen((o) => !o)}
               aria-expanded={menuOpen}
               aria-label="Menu"
@@ -74,47 +74,47 @@ export function Header() {
           </div>
         </div>
 
-        {menuOpen && (
-          <nav
-            className="border-t border-site-fg px-5 py-4 md:hidden"
-            aria-label="Mobile"
-          >
-            <ul className="flex flex-col gap-4">
-              {links.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className={`nav-link block text-base ${isActive(link.href) ? "nav-link-active" : ""}`}
-                    onClick={() => setMenuOpen(false)}
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-              <li>
-                <button
-                  type="button"
-                  onClick={toggleLocale}
-                  className="nav-link w-full text-left"
+        <nav
+          className={`overflow-hidden border-t border-site-line transition-all duration-500 ease-spring md:hidden ${
+            menuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+          }`}
+          aria-label="Mobile"
+        >
+          <ul className="site-container flex flex-col gap-4 py-4">
+            {links.map((link, i) => (
+              <li
+                key={link.href}
+                className="animate-bounce-in"
+                style={{ animationDelay: `${i * 60}ms` }}
+              >
+                <Link
+                  href={link.href}
+                  className={`nav-link block text-base ${isActive(link.href) ? "nav-link-active" : ""}`}
+                  onClick={() => setMenuOpen(false)}
                 >
-                  {locale === "en" ? "中文" : "EN"}
-                </button>
+                  {link.label}
+                </Link>
               </li>
-              <li>
-                <button
-                  type="button"
-                  className="btn-connect w-full"
-                  onClick={() => {
-                    setMenuOpen(false);
-                    setConnectOpen(true);
-                  }}
-                >
-                  {t.nav.connect}
-                </button>
-              </li>
-            </ul>
-          </nav>
-        )}
+            ))}
+            <li>
+              <button type="button" onClick={toggleLocale} className="nav-link w-full text-left">
+                {locale === "en" ? "中文" : "EN"}
+              </button>
+            </li>
+            <li>
+              <button
+                type="button"
+                className="btn-connect w-full"
+                onClick={() => {
+                  setMenuOpen(false);
+                  setConnectOpen(true);
+                }}
+              >
+                {t.nav.connect}
+              </button>
+            </li>
+          </ul>
+        </nav>
       </header>
 
       <ConnectModal isOpen={connectOpen} onClose={() => setConnectOpen(false)} />

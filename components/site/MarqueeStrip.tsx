@@ -7,7 +7,10 @@ export function MarqueeStrip() {
   const items = [...t.home.marquee, ...t.home.marquee];
 
   return (
-    <div className="overflow-hidden border-y border-site-fg py-4" aria-hidden>
+    <div
+      className="overflow-hidden border-y border-site-line bg-white/25 py-4 backdrop-blur-md"
+      aria-hidden
+    >
       <div className="flex w-max animate-marquee gap-12">
         {items.map((line, i) => (
           <span

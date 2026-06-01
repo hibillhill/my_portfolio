@@ -1,8 +1,8 @@
 "use client";
 
-import { useEffect } from "react";
 import { X } from "lucide-react";
 import { useLanguage } from "@/components/i18n/LanguageProvider";
+import { useModalAnimation } from "./useModalAnimation";
 
 export type LegalType = "terms" | "privacy" | "cookies";
 
@@ -11,7 +11,10 @@ interface LegalModalProps {
   onClose: () => void;
 }
 
-const titles: Record<LegalType, (t: ReturnType<typeof useLanguage>["t"]) => string> = {
+const titles: Record<
+  LegalType,
+  (t: ReturnType<typeof useLanguage>["t"]) => string
+> = {
   terms: (t) => t.footer.terms,
   privacy: (t) => t.footer.privacy,
   cookies: (t) => t.footer.cookies,
@@ -19,29 +22,18 @@ const titles: Record<LegalType, (t: ReturnType<typeof useLanguage>["t"]) => stri
 
 export function LegalModal({ type, onClose }: LegalModalProps) {
   const { t } = useLanguage();
+  const isOpen = type !== null;
+  const { mounted, closing, requestClose } = useModalAnimation(isOpen, onClose);
 
-  useEffect(() => {
-    if (!type) return;
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") onClose();
-    };
-    document.body.style.overflow = "hidden";
-    window.addEventListener("keydown", onKey);
-    return () => {
-      document.body.style.overflow = "";
-      window.removeEventListener("keydown", onKey);
-    };
-  }, [type, onClose]);
-
-  if (!type) return null;
+  if (!mounted || !type) return null;
 
   return (
     <div
-      className="legal-overlay"
+      className={`legal-overlay ${closing ? "legal-overlay-closing" : ""}`}
       role="dialog"
       aria-modal="true"
       aria-labelledby="legal-title"
-      onClick={onClose}
+      onClick={requestClose}
     >
       <div className="legal-panel" onClick={(e) => e.stopPropagation()}>
         <div className="mb-4 flex items-start justify-between gap-4">
@@ -50,8 +42,8 @@ export function LegalModal({ type, onClose }: LegalModalProps) {
           </h2>
           <button
             type="button"
-            onClick={onClose}
-            className="rounded-full border border-site-fg p-1.5 transition-opacity hover:opacity-60"
+            onClick={requestClose}
+            className="bounce-press rounded-full border border-site-fg/20 bg-white/50 p-1.5 backdrop-blur-sm hover:bg-white/80"
             aria-label={t.connect.close}
           >
             <X className="h-4 w-4" />
