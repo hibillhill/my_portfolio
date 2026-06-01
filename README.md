@@ -1,49 +1,36 @@
-# Hill Choi — Modern Y2K Portfolio
+# Hillers Choi — Portfolio (ChungiYoo-inspired)
 
-Modern Y2K / Cyber-Brutalism 風格的 UI/UX Designer 求職作品集，使用 Next.js App Router、TypeScript、Tailwind CSS、lucide-react 與 next-themes 建置。
+極簡、大膽排版的 UI/UX 設計師求職作品集原型，視覺風格參考 [chungiyoo.com](https://chungiyoo.com/)。
 
-## 技術棧
+## 頁面
 
-- **Next.js 15** (App Router)
-- **TypeScript**
-- **Tailwind CSS**（自定義 Y2K 色彩、hard-shadow、marquee 動畫）
-- **Google Fonts**: Space Grotesk、Silkscreen、Inter、Roboto Mono
-- **lucide-react** + **next-themes**
+| 路由 | 說明 |
+|------|------|
+| `/` | 主頁 — Hero、跑馬燈、精選作品 |
+| `/about` | 關於我 — 經歷、特質、專注領域 |
+| `/portfolio` | 作品集 — 特質、作品、軟體工具 |
 
-## 開始使用
+## 功能
+
+- 中 / 英切換（Header 右上角）
+- Connect 按鈕（彈窗聯絡）
+- Footer：© 2026、網站地圖、Instagram / Facebook / Threads、Legal 彈窗（Terms / Privacy / Cookies）
+- 響應式（手機 / 平板 / 桌面）
+
+## 開發
 
 ```bash
 npm install
 npm run dev
 ```
 
-開啟 [http://localhost:3000](http://localhost:3000)
-
-## 路由
-
-| 路徑 | 說明 |
-|------|------|
-| `/` | 首頁 Hero、技能卡牌、精選專案 |
-| `/portfolio` | 作品集畫廊 + 復古搜尋 |
-| `/portfolio/[id]` | 專案 Case Study |
-| `/about` | 關於我 + 聯絡表單 |
-
-## 專案結構
+## 結構
 
 ```
-app/
-  layout.tsx
-  page.tsx
-  portfolio/
-  about/
-components/
-  Header.tsx, Footer.tsx, Marquee.tsx
-  RetroWindow.tsx, ProjectCard.tsx
-  ProjectSearch.tsx, ContactForm.tsx
-lib/
-  data.ts, types.ts
+app/                    # 三頁路由
+components/site/        # Header, Footer, 頁面區塊
+components/i18n/        # LanguageProvider
+lib/i18n/               # en.ts / zh.ts 文案
 ```
 
-## 自訂內容
-
-編輯 `lib/data.ts` 更新專案、技能與社群連結。
+文案與作品請編輯 `lib/i18n/en.ts` 與 `lib/i18n/zh.ts`。
