@@ -97,7 +97,7 @@ export const projects: Project[] = [
 export const socialLinks = {
   github: "https://github.com",
   linkedin: "https://linkedin.com",
-  email: "mailto:hill.choi@example.com",
+  email: "mailto:connect@hillchoi.com",
 };
 
 export const marqueeTexts = [

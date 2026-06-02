@@ -8,127 +8,183 @@
   }
 
   body {
-    @apply font-sans text-black antialiased transition-colors duration-300;
-    background-color: theme("colors.y2k.white");
+    @apply bg-site-bg font-body text-site-fg antialiased;
   }
 
-  .dark body {
-    background-color: theme("colors.y2k.black");
-    @apply text-y2k-white;
+  ::selection {
+    @apply bg-site-fg text-site-bg;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+
+    .reveal {
+      opacity: 1 !important;
+      transform: none !important;
+    }
   }
 }
 
 @layer components {
-  .y2k-grid-bg {
-    background-color: theme("colors.y2k.white");
-    background-image:
-      linear-gradient(theme("colors.y2k.grid") 1px, transparent 1px),
-      linear-gradient(90deg, theme("colors.y2k.grid") 1px, transparent 1px);
-    background-size: 24px 24px;
+  .site-container {
+    @apply mx-auto w-full max-w-site px-5 md:px-8 lg:px-12;
   }
 
-  .dark .y2k-grid-bg {
-    background-color: theme("colors.y2k.black");
-    background-image:
-      linear-gradient(rgba(57, 255, 20, 0.08) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255, 0, 255, 0.08) 1px, transparent 1px);
+  /* —— Glass (Chungi-inspired soft panels) —— */
+  .glass {
+    @apply border border-white/60 bg-white/40 shadow-glass backdrop-blur-xl;
   }
 
-  .retro-window {
-    @apply border-2 border-black bg-white shadow-hard;
-    @apply transition-all duration-200 ease-out;
+  .glass-strong {
+    @apply border border-white/70 bg-white/55 shadow-glass-lg backdrop-blur-2xl;
   }
 
-  .dark .retro-window {
-    @apply border-y2k-green bg-black text-y2k-white shadow-neon-green;
+  .glass-header {
+    @apply border-b border-site-line bg-white/50 shadow-glass backdrop-blur-xl;
   }
 
-  .retro-titlebar {
-    @apply flex items-center justify-between border-b-2 border-black px-3 py-1.5;
-    @apply bg-gradient-to-r from-y2k-cyan via-y2k-pink to-y2k-green font-pixel text-[10px] uppercase tracking-wider text-black;
+  .glass-card {
+    @apply glass transition-all duration-500 ease-spring;
   }
 
-  .dark .retro-titlebar {
-    @apply border-y2k-green from-y2k-green/30 via-y2k-pink/30 to-y2k-cyan/30 text-y2k-green;
+  .glass-card:hover {
+    @apply -translate-y-1 bg-white/50 shadow-glass-lg;
   }
 
-  .retro-btn {
-    @apply inline-flex items-center justify-center gap-2 border-2 border-black bg-y2k-green px-4 py-2;
-    @apply font-pixel text-xs uppercase tracking-wide text-black shadow-hard;
-    @apply transition-all duration-150 ease-out;
-    @apply hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none;
-    @apply active:translate-x-[4px] active:translate-y-[4px] active:shadow-none;
-    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-y2k-pink focus-visible:ring-offset-2;
+  /* —— Scroll reveal —— */
+  .reveal {
+    @apply opacity-0 transition-[opacity,transform] duration-700 ease-spring-soft;
   }
 
-  .dark .retro-btn {
-    @apply border-y2k-pink bg-y2k-pink text-black shadow-hard-pink hover:shadow-neon-pink;
+  .reveal-up {
+    @apply translate-y-8;
   }
 
-  .retro-btn-secondary {
-    @apply retro-btn bg-y2k-cyan;
+  .reveal-down {
+    @apply -translate-y-6;
   }
 
-  .retro-btn-pink {
-    @apply retro-btn bg-y2k-pink text-white;
+  .reveal-scale {
+    @apply scale-[0.97];
   }
 
-  .retro-input {
-    @apply w-full border-2 border-black bg-white px-3 py-2 font-mono text-sm text-black;
-    @apply shadow-hard-sm transition-all duration-200;
-    @apply focus:outline-none focus:ring-2 focus:ring-y2k-cyan focus:ring-offset-1;
+  .reveal-visible {
+    @apply translate-y-0 scale-100 opacity-100;
   }
 
-  .dark .retro-input {
-    @apply border-y2k-cyan bg-black text-y2k-white shadow-hard-cyan;
-    @apply focus:ring-y2k-pink;
+  /* —— Bounce / spring interactions —— */
+  .bounce-hover {
+    @apply transition-transform duration-300 ease-spring;
   }
 
-  .holographic-text {
-    @apply bg-holographic bg-clip-text font-display font-bold text-transparent;
-    background-size: 200% auto;
-    animation: shimmer 6s linear infinite;
+  .bounce-hover:hover {
+    @apply -translate-y-0.5 scale-[1.03];
   }
 
-  @keyframes shimmer {
-    0% {
-      background-position: 0% center;
+  .bounce-hover:active {
+    @apply scale-[0.96] translate-y-0;
+  }
+
+  .bounce-press {
+    @apply transition-transform duration-200 ease-spring active:scale-95;
+  }
+
+  /* —— Nav & buttons —— */
+  .nav-link {
+    @apply relative font-body text-sm font-medium uppercase tracking-[0.12em] text-site-fg;
+    @apply transition-all duration-300 ease-spring;
+  }
+
+  .nav-link:hover {
+    @apply -translate-y-px opacity-70;
+  }
+
+  .nav-link-active {
+    @apply opacity-100 after:absolute after:-bottom-1 after:left-0 after:h-px after:w-full after:bg-site-fg after:content-[''];
+  }
+
+  .paren-note {
+    @apply rounded-2xl border border-white/50 bg-white/30 px-4 py-3 font-body text-sm leading-relaxed text-site-muted backdrop-blur-md md:text-base;
+  }
+
+  .btn-connect {
+    @apply bounce-hover inline-flex items-center justify-center rounded-full border border-site-fg bg-site-fg px-5 py-2.5;
+    @apply font-body text-xs font-semibold uppercase tracking-[0.14em] text-site-bg;
+    @apply shadow-glass hover:bg-site-fg/90;
+  }
+
+  .btn-connect-outline {
+    @apply bounce-hover glass inline-flex items-center justify-center rounded-full px-5 py-2.5;
+    @apply font-body text-xs font-semibold uppercase tracking-[0.14em] text-site-fg;
+    @apply hover:bg-white/60;
+  }
+
+  .display-stacked {
+    @apply font-display font-bold uppercase leading-[0.92] tracking-tight;
+  }
+
+  .work-card {
+    @apply glass-strong relative overflow-hidden border-site-fg/10;
+    @apply transition-all duration-500 ease-spring;
+  }
+
+  .work-card:hover {
+    @apply -translate-y-2 scale-[1.01] shadow-glass-lg;
+  }
+
+  .work-fade {
+    @apply animate-fade-in;
+  }
+
+  .tag-glass {
+    @apply rounded-full border border-white/60 bg-white/45 px-2.5 py-0.5 font-body text-[10px] uppercase tracking-wider backdrop-blur-sm;
+  }
+
+  /* —— Modals —— */
+  .legal-overlay {
+    @apply fixed inset-0 z-[100] flex items-center justify-center bg-site-fg/25 p-4 backdrop-blur-md;
+    animation: fadeIn 0.35s ease forwards;
+  }
+
+  .legal-overlay-closing {
+    animation: fadeOut 0.3s ease forwards;
+  }
+
+  .legal-panel {
+    @apply glass-strong max-h-[85vh] w-full max-w-lg overflow-y-auto rounded-2xl p-6 md:p-8;
+    animation: bounceIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  }
+
+  .scroll-progress {
+    @apply fixed left-0 top-0 z-[60] h-[2px] origin-left bg-site-fg transition-transform duration-150 ease-out;
+  }
+
+  /* —— Site-wide curved lines (SVG) —— */
+  .site-lines {
+    @apply pointer-events-none fixed inset-0 -z-[9] overflow-hidden;
+  }
+
+  .site-lines-svg {
+    @apply h-full w-full;
+  }
+
+  .site-lines-hide-mobile {
+    display: none;
+  }
+
+  @media (min-width: 768px) {
+    .site-lines-hide-mobile {
+      display: inline;
     }
-    100% {
-      background-position: 200% center;
-    }
-  }
-
-  .neon-text {
-    @apply dark:text-y2k-green dark:drop-shadow-[0_0_8px_rgba(57,255,20,0.8)];
-  }
-
-  .pixel-underline {
-    @apply relative inline-block;
-  }
-
-  .pixel-underline::after {
-    content: "";
-    @apply absolute -bottom-1 left-0 h-0.5 w-0 bg-y2k-pink transition-all duration-300;
-  }
-
-  .pixel-underline:hover::after {
-    @apply w-full;
-  }
-
-  .skill-badge {
-    @apply retro-window flex flex-col items-center gap-1 px-4 py-3 text-center;
-    @apply hover:-rotate-2 hover:scale-105 hover:shadow-hard-pink;
-    @apply transition-transform duration-200 ease-out;
-  }
-
-  .glitch-hover:hover {
-    animation: glitch 0.4s steps(2) 1;
-  }
-}
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
   }
 }
