@@ -71,11 +71,11 @@ export const en: Dictionary = {
     hiTitle: "hi-im hill",
     role: "UI/UX designer & researcher",
     bio1:
-      "A Hong Kong based UI/UX Designer specializing in product design, user research, and design systems. I love creating clear, bold interfaces that feel delightful yet purposeful.",
+      "I am a Hong Kong–based UI/UX designer who works across product design, user research, and design systems. I partner with teams from early discovery through polished UI, turning messy problems into flows people can trust. I care about hierarchy, tone, and the small details—loading states, error copy, empty screens—that make an experience feel considered rather than rushed.",
     bio2:
-      "My background in aviation hospitality taught me composure under pressure, rigorous communication, and deep empathy — skills I bring into every design critique and stakeholder workshop.",
+      "Before design, I worked in aviation hospitality, where calm under pressure, clear communication, and genuine care for people were part of the job. That background still shapes how I run interviews, facilitate workshops, and present trade-offs to product and engineering. I listen first, document what I hear, and design with evidence—not assumptions.",
     bio3:
-      "I am open to full-time roles, freelance collaborations, and peer design exchanges. Ready for new challenges.",
+      "I am open to full-time roles, freelance collaborations, and peer design exchanges. Whether you are shipping a new product, refreshing a service journey, or building a design system from scratch, I would love to hear what you are working on. Let’s make something clear, bold, and worth using.",
     cta: "hit me up !",
     clientsTitle: "Focus areas",
     clientsParen: "( Product, service, and brand experiences across web & mobile. )",

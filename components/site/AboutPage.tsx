@@ -12,8 +12,8 @@ export function AboutPage() {
     <div className="site-container pb-20 pt-10 md:pt-16">
       <Reveal>
         <section className="glass-strong rounded-3xl p-6 md:p-10">
-          <div className="grid grid-cols-1 items-center gap-8 min-[520px]:grid-cols-[minmax(0,1fr)_auto] lg:grid-cols-12 lg:gap-16">
-            <div className="min-w-0 lg:col-span-5">
+          <div className="grid grid-cols-1 items-start gap-8 md:gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(220px,300px)] lg:grid-rows-[auto_1fr] lg:gap-x-12 lg:gap-y-8 xl:gap-x-16">
+            <div className="min-w-0 lg:col-start-1 lg:row-start-1">
               <h2 className="font-display text-4xl font-bold uppercase leading-none md:text-5xl">
                 {t.about.hiTitle}
               </h2>
@@ -28,24 +28,24 @@ export function AboutPage() {
               </Link>
             </div>
 
-            <div className="flex shrink-0 justify-center min-[520px]:justify-center lg:col-span-7">
-              <div className="relative h-28 w-24 overflow-hidden rounded-xl border border-white/70 shadow-glass sm:h-32 sm:w-28 md:h-36 md:w-32">
+            <div className="flex justify-center lg:col-start-2 lg:row-start-1 lg:row-span-2 lg:justify-end lg:self-start">
+              <div className="relative aspect-[4/5] w-full max-w-[220px] overflow-hidden rounded-2xl border border-white/70 shadow-glass sm:max-w-[260px] lg:max-w-none lg:w-full">
                 <Image
                   src="/images/hill-about.png"
                   alt="Hill Choi with her dogs"
                   fill
                   className="object-cover object-[50%_22%]"
-                  sizes="128px"
+                  sizes="(max-width: 1024px) 260px, 300px"
                   priority
                 />
               </div>
             </div>
-          </div>
 
-          <div className="mt-10 space-y-6 font-body text-sm leading-relaxed md:mt-12 md:text-base lg:max-w-3xl">
-            <p>{t.about.bio1}</p>
-            <p>{t.about.bio2}</p>
-            <p>{t.about.bio3}</p>
+            <div className="space-y-6 font-body text-sm leading-relaxed md:text-base lg:col-start-1 lg:row-start-2">
+              <p>{t.about.bio1}</p>
+              <p>{t.about.bio2}</p>
+              <p>{t.about.bio3}</p>
+            </div>
           </div>
         </section>
       </Reveal>
