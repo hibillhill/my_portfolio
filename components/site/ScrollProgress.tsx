@@ -4,8 +4,11 @@ import { useEffect, useState } from "react";
 
 export function ScrollProgress() {
   const [progress, setProgress] = useState(0);
+  const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
+    setIsMounted(true);
+
     const onScroll = () => {
       const scrollTop = window.scrollY;
       const docHeight =
@@ -21,7 +24,7 @@ export function ScrollProgress() {
   return (
     <div
       className="scroll-progress"
-      style={{ transform: `scaleX(${progress})`, width: "100%" }}
+      style={{ transform: `scaleX(${isMounted ? progress : 0})`, width: "100%" }}
       aria-hidden
     />
   );

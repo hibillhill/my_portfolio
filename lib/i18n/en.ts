@@ -1,8 +1,9 @@
 import type { Dictionary } from "./types";
+import { legalEn } from "./legal-en";
 
 export const en: Dictionary = {
   meta: {
-    siteName: "Hillers Choi",
+    siteName: "Hill Choi",
     role: "UI/UX Designer",
   },
   nav: {
@@ -16,8 +17,8 @@ export const en: Dictionary = {
     playground: "playground",
     of: "of",
     introParen:
-      "( Hi! I'm Hillers Choi, UI/UX Designer from Hong Kong. I design experiences where user needs meet business goals. )",
-    nameLine1: "hillers",
+      "( Hi! I'm Hill Choi, UI/UX Designer from Hong Kong. I design experiences where user needs meet business goals. )",
+    nameLine1: "hill",
     nameLine2: "choi",
     roleLines: ["UI/UX", "Designer", "&", "Researcher"],
     tagline: "lets-build-meaningful-products",
@@ -42,6 +43,7 @@ export const en: Dictionary = {
           "Service design for high-pressure travel contexts. Simplified flows for diverse user groups.",
         tags: ["App Redesign", "UX Research"],
         color: "bg-[#E8D4F8]",
+        image: "/images/works/skyline-air-checkin.png",
       },
       {
         id: "neon",
@@ -51,6 +53,7 @@ export const en: Dictionary = {
           "Bold e-commerce experience balancing visual energy with conversion-focused UX.",
         tags: ["Web Design", "Design System"],
         color: "bg-[#FFF3B0]",
+        image: "/images/works/neon-commerce-brand.png",
       },
       {
         id: "pulse",
@@ -60,14 +63,12 @@ export const en: Dictionary = {
           "Health data visualization for clinicians and patients with clear hierarchy.",
         tags: ["Dashboard", "B2B SaaS"],
         color: "bg-[#B8F0D4]",
+        image: "/images/works/pulse-health-dashboard.png",
       },
     ],
   },
   about: {
-    headline: ["Let's create", "something", "together."],
-    headlineParen:
-      "( I strive to develop unique design solutions that balance user empathy and business impact. )",
-    hiTitle: "hi-im hillers",
+    hiTitle: "hi-im hill",
     role: "UI/UX designer & researcher",
     bio1:
       "A Hong Kong based UI/UX Designer specializing in product design, user research, and design systems. I love creating clear, bold interfaces that feel delightful yet purposeful.",
@@ -130,6 +131,7 @@ export const en: Dictionary = {
         description: "Airport self check-in app redesign — reduced anxiety, +21% completion.",
         tags: ["UI Research", "App"],
         color: "bg-[#E8D4F8]",
+        image: "/images/works/skyline-air-checkin.png",
       },
       {
         id: "neon",
@@ -138,6 +140,7 @@ export const en: Dictionary = {
         description: "Gen-Z e-commerce — design system + conversion-focused flows.",
         tags: ["Web Design"],
         color: "bg-[#FFF3B0]",
+        image: "/images/works/neon-commerce-brand.png",
       },
       {
         id: "pulse",
@@ -146,6 +149,7 @@ export const en: Dictionary = {
         description: "B2B health dashboard — dual views for care teams & patients.",
         tags: ["Dashboard"],
         color: "bg-[#B8F0D4]",
+        image: "/images/works/pulse-health-dashboard.png",
       },
       {
         id: "retro",
@@ -168,7 +172,7 @@ export const en: Dictionary = {
     ],
   },
   footer: {
-    copyright: "© 2026 Hillers Choi. All rights reserved.",
+    copyright: "© 2026 Hill Choi. All rights reserved.",
     sitemap: "Sitemap",
     social: "Social",
     legal: "Legal",
@@ -176,13 +180,12 @@ export const en: Dictionary = {
     privacy: "Privacy",
     cookies: "Cookies",
     links: { home: "Home", about: "About", portfolio: "Portfolio" },
-    legalPlaceholder:
-      "Legal content will be added soon. This is a prototype placeholder for compliance copy.",
   },
+  legal: legalEn,
   connect: {
     title: "Connect",
     text: "Open to collaborations, consulting, and design peer chats.",
-    email: "hillers.choi@example.com",
+    email: "connect@hillchoi.com",
     close: "Close",
   },
   lang: {

@@ -3,14 +3,9 @@
 import { useState } from "react";
 import Link from "next/link";
 import { useLanguage } from "@/components/i18n/LanguageProvider";
+import { instagramSocial } from "@/lib/social";
 import { LegalModal, type LegalType } from "./LegalModal";
 import { Reveal } from "./Reveal";
-
-const socialLinks = [
-  { label: "Instagram", href: "https://instagram.com" },
-  { label: "Facebook", href: "https://facebook.com" },
-  { label: "Threads", href: "https://threads.net" },
-];
 
 export function Footer() {
   const { t } = useLanguage();
@@ -30,7 +25,7 @@ export function Footer() {
 
   return (
     <>
-      <footer className="mt-24 border-t border-site-line md:mt-32">
+      <footer className="relative z-10 mt-24 border-t border-site-line md:mt-32">
         <Reveal>
           <div className="site-container py-12 md:py-16">
             <div className="glass-strong rounded-3xl p-6 md:p-10">
@@ -66,20 +61,22 @@ export function Footer() {
                   <p className="mb-3 font-body text-[10px] font-semibold uppercase tracking-[0.2em]">
                     {t.footer.social}
                   </p>
-                  <ul className="space-y-2">
-                    {socialLinks.map((item) => (
-                      <li key={item.label}>
-                        <a
-                          href={item.href}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="bounce-hover inline-block font-body text-sm"
-                        >
-                          {item.label}
-                        </a>
-                      </li>
-                    ))}
-                  </ul>
+                  <a
+                    href={instagramSocial.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="bounce-hover inline-block"
+                    aria-label={`Instagram ${instagramSocial.handle}`}
+                  >
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={instagramSocial.qrSrc}
+                      alt={`Instagram QR code ${instagramSocial.handle}`}
+                      width={132}
+                      height={132}
+                      className="h-[132px] w-[132px] rounded-2xl border border-site-fg/10 bg-white shadow-sm"
+                    />
+                  </a>
                 </div>
               </div>
 

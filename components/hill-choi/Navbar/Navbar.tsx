@@ -12,7 +12,7 @@ export function Navbar() {
     <header className={styles.header}>
       <div className={styles.inner}>
         <Link href="/hill" className={styles.logo}>
-          HILLERS CHOI
+          HILL CHOI
         </Link>
         <nav aria-label="Primary">
           <ul className={styles.nav}>

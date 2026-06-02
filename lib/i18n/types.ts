@@ -1,3 +1,5 @@
+import type { LegalDocuments } from "./legal-types";
+
 export type Locale = "en" | "zh";
 
 export interface WorkItem {
@@ -7,6 +9,7 @@ export interface WorkItem {
   description: string;
   tags: string[];
   color: string;
+  image?: string;
 }
 
 export interface SoftwareItem {
@@ -41,8 +44,6 @@ export interface Dictionary {
     works: WorkItem[];
   };
   about: {
-    headline: string[];
-    headlineParen: string;
     hiTitle: string;
     role: string;
     bio1: string;
@@ -75,8 +76,8 @@ export interface Dictionary {
     privacy: string;
     cookies: string;
     links: { home: string; about: string; portfolio: string };
-    legalPlaceholder: string;
   };
+  legal: LegalDocuments;
   connect: {
     title: string;
     text: string;

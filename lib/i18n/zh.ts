@@ -1,8 +1,9 @@
 import type { Dictionary } from "./types";
+import { legalZh } from "./legal-zh";
 
 export const zh: Dictionary = {
   meta: {
-    siteName: "Hillers Choi",
+    siteName: "Hill Choi",
     role: "UI/UX 設計師",
   },
   nav: {
@@ -16,8 +17,8 @@ export const zh: Dictionary = {
     playground: "遊樂場",
     of: "",
     introParen:
-      "（ 你好！我是 Hillers Choi，來自香港的 UI/UX 設計師。我專注於在使用者需求與商業目標之間取得平衡。 ）",
-    nameLine1: "hillers",
+      "（ 你好！我是 Hill Choi，來自香港的 UI/UX 設計師。我專注於在使用者需求與商業目標之間取得平衡。 ）",
+    nameLine1: "hill",
     nameLine2: "choi",
     roleLines: ["UI/UX", "設計師", "&", "用研"],
     tagline: "一起打造有意義的產品",
@@ -40,6 +41,7 @@ export const zh: Dictionary = {
         description: "高壓旅遊場景的服務設計，為多元使用者簡化流程。",
         tags: ["App 重塑", "用研"],
         color: "bg-[#E8D4F8]",
+        image: "/images/works/skyline-air-checkin.png",
       },
       {
         id: "neon",
@@ -48,6 +50,7 @@ export const zh: Dictionary = {
         description: "在視覺張力與轉換導向 UX 之間取得平衡的電商體驗。",
         tags: ["網頁設計", "設計系統"],
         color: "bg-[#FFF3B0]",
+        image: "/images/works/neon-commerce-brand.png",
       },
       {
         id: "pulse",
@@ -56,14 +59,12 @@ export const zh: Dictionary = {
         description: "為醫護與病患設計的清晰數據視覺層級。",
         tags: ["Dashboard", "B2B"],
         color: "bg-[#B8F0D4]",
+        image: "/images/works/pulse-health-dashboard.png",
       },
     ],
   },
   about: {
-    headline: ["一起", "創造", "些什麼。"],
-    headlineParen:
-      "（ 我致力於開發獨特的設計方案，平衡使用者同理心與商業影響力。 ）",
-    hiTitle: "hi-im hillers",
+    hiTitle: "hi-im hill",
     role: "UI/UX 設計師 & 用研",
     bio1:
       "定居香港的 UI/UX 設計師，專注產品設計、使用者研究與設計系統。我喜歡創造清晰、大膽且具目的性的介面體驗。",
@@ -124,6 +125,7 @@ export const zh: Dictionary = {
         description: "機場自助報到 App — 降低焦慮，完成率 +21%。",
         tags: ["用研", "App"],
         color: "bg-[#E8D4F8]",
+        image: "/images/works/skyline-air-checkin.png",
       },
       {
         id: "neon",
@@ -132,6 +134,7 @@ export const zh: Dictionary = {
         description: "Z 世代電商 — 設計系統 + 轉換導向流程。",
         tags: ["網頁設計"],
         color: "bg-[#FFF3B0]",
+        image: "/images/works/neon-commerce-brand.png",
       },
       {
         id: "pulse",
@@ -140,6 +143,7 @@ export const zh: Dictionary = {
         description: "B2B 健康儀表板 — 雙角色視圖。",
         tags: ["Dashboard"],
         color: "bg-[#B8F0D4]",
+        image: "/images/works/pulse-health-dashboard.png",
       },
       {
         id: "retro",
@@ -162,7 +166,7 @@ export const zh: Dictionary = {
     ],
   },
   footer: {
-    copyright: "© 2026 Hillers Choi. 版權所有。",
+    copyright: "© 2026 Hill Choi. 版權所有。",
     sitemap: "網站地圖",
     social: "社群",
     legal: "法律",
@@ -170,12 +174,12 @@ export const zh: Dictionary = {
     privacy: "隱私",
     cookies: "Cookies",
     links: { home: "主頁", about: "關於我", portfolio: "作品集" },
-    legalPlaceholder: "法律條款內容將於稍後補充，此為原型占位文字。",
   },
+  legal: legalZh,
   connect: {
     title: "聯絡",
     text: "歡迎合作、商業諮詢與設計同業交流。",
-    email: "hillers.choi@example.com",
+    email: "connect@hillchoi.com",
     close: "關閉",
   },
   lang: {

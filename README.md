@@ -1,4 +1,4 @@
-# Hillers Choi — Portfolio (ChungiYoo-inspired)
+# Hill Choi — Portfolio (ChungiYoo-inspired)
 
 極簡、大膽排版的 UI/UX 設計師求職作品集原型，視覺風格參考 [chungiyoo.com](https://chungiyoo.com/)。
 

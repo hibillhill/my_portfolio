@@ -168,4 +168,23 @@
   .scroll-progress {
     @apply fixed left-0 top-0 z-[60] h-[2px] origin-left bg-site-fg transition-transform duration-150 ease-out;
   }
+
+  /* —— Site-wide curved lines (SVG) —— */
+  .site-lines {
+    @apply pointer-events-none fixed inset-0 -z-[9] overflow-hidden;
+  }
+
+  .site-lines-svg {
+    @apply h-full w-full;
+  }
+
+  .site-lines-hide-mobile {
+    display: none;
+  }
+
+  @media (min-width: 768px) {
+    .site-lines-hide-mobile {
+      display: inline;
+    }
+  }
 }

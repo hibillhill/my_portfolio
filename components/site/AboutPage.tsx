@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useLanguage } from "@/components/i18n/LanguageProvider";
 import { Reveal } from "./Reveal";
@@ -10,32 +11,38 @@ export function AboutPage() {
   return (
     <div className="site-container pb-20 pt-10 md:pt-16">
       <Reveal>
-        <header className="max-w-4xl">
-          <h1 className="display-stacked text-display-lg">{t.about.headline[0]}</h1>
-          <h1 className="display-stacked text-display-xl">{t.about.headline[1]}</h1>
-          <h1 className="display-stacked text-display-lg">{t.about.headline[2]}</h1>
-          <p className="paren-note mt-8">{t.about.headlineParen}</p>
-        </header>
-      </Reveal>
+        <section className="glass-strong rounded-3xl p-6 md:p-10">
+          <div className="grid grid-cols-1 items-center gap-8 min-[520px]:grid-cols-[minmax(0,1fr)_auto] lg:grid-cols-12 lg:gap-16">
+            <div className="min-w-0 lg:col-span-5">
+              <h2 className="font-display text-4xl font-bold uppercase leading-none md:text-5xl">
+                {t.about.hiTitle}
+              </h2>
+              <p className="mt-4 font-body text-sm font-semibold uppercase tracking-[0.15em] text-site-muted">
+                {t.about.role}
+              </p>
+              <Link
+                href={`mailto:${t.connect.email}`}
+                className="btn-connect mt-8 inline-flex"
+              >
+                {t.about.cta}
+              </Link>
+            </div>
 
-      <Reveal delay={100}>
-        <section className="glass-strong mt-16 grid gap-12 rounded-3xl p-6 md:p-10 lg:grid-cols-12 lg:gap-16">
-          <div className="lg:col-span-5">
-            <h2 className="font-display text-4xl font-bold uppercase leading-none md:text-5xl">
-              {t.about.hiTitle}
-            </h2>
-            <p className="mt-4 font-body text-sm font-semibold uppercase tracking-[0.15em] text-site-muted">
-              {t.about.role}
-            </p>
-            <Link
-              href="mailto:hillers.choi@example.com"
-              className="btn-connect mt-8 inline-flex"
-            >
-              {t.about.cta}
-            </Link>
+            <div className="flex shrink-0 justify-center min-[520px]:justify-center lg:col-span-7">
+              <div className="relative h-28 w-24 overflow-hidden rounded-xl border border-white/70 shadow-glass sm:h-32 sm:w-28 md:h-36 md:w-32">
+                <Image
+                  src="/images/hill-about.png"
+                  alt="Hill Choi with her dogs"
+                  fill
+                  className="object-cover object-[50%_22%]"
+                  sizes="128px"
+                  priority
+                />
+              </div>
+            </div>
           </div>
 
-          <div className="space-y-6 font-body text-sm leading-relaxed md:text-base lg:col-span-7">
+          <div className="mt-10 space-y-6 font-body text-sm leading-relaxed md:mt-12 md:text-base lg:max-w-3xl">
             <p>{t.about.bio1}</p>
             <p>{t.about.bio2}</p>
             <p>{t.about.bio3}</p>
@@ -49,15 +56,13 @@ export function AboutPage() {
             {t.about.traitsTitle}
           </h3>
           <div className="mt-8 grid gap-6 md:grid-cols-3">
-            {t.about.traits.map((trait, i) => (
-              <Reveal key={trait.title} delay={i * 80} direction="scale">
-                <article className="glass-card h-full p-6">
-                  <h4 className="font-display text-lg font-bold uppercase">{trait.title}</h4>
-                  <p className="mt-3 font-body text-sm leading-relaxed text-site-muted">
-                    {trait.text}
-                  </p>
-                </article>
-              </Reveal>
+            {t.about.traits.map((trait) => (
+              <article key={trait.title} className="glass-card h-full p-6">
+                <h4 className="font-display text-lg font-bold uppercase">{trait.title}</h4>
+                <p className="mt-3 font-body text-sm leading-relaxed text-site-muted">
+                  {trait.text}
+                </p>
+              </article>
             ))}
           </div>
         </section>
